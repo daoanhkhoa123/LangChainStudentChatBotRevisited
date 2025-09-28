@@ -1,10 +1,19 @@
 import os
-
 from keys import GEMINI_KEYS
 
-from langchain.chat_models import init_chat_model
-
 if not os.environ.get("GOOGLE_API_KEY"):
-    os.environ["GOOGLE_API_KEY"] = GEMINI_KEYS[0]
+    os.environ["GOOGLE_API_KEY"] = GEMINI_KEYS[2]
 
-gemini = init_chat_model("gemini-2.5-flash", model_provider="google_genai")
+from langchain.chat_models import init_chat_model
+from langchain_google_genai.embeddings import GoogleGenerativeAIEmbeddings
+
+gemini = init_chat_model(
+    "gemini-2.5-flash",
+    model_provider="google_genai",
+    temperature=0.0
+)
+
+gemini_embedding = GoogleGenerativeAIEmbeddings(
+    model="models/embedding-001",
+)
+
