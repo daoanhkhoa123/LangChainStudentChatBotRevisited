@@ -25,7 +25,7 @@ def greeting_with_events(student:StudentState, school:SchoolState, top_k_event:i
 
 @retry(default={"events_chosen": []})
 def choose_events(events:Iterable[EventState], prompt:str):
-    system_msg = """Yaou are an assistant that identifies which events a user is referring to.
+    system_msg = """You are an assistant that identifies which events a user is referring to.
     You will be given a user query and a list of upcoming events. 
     Return ONLY the event names that are most relevant, as a JSON list of strings."""
     

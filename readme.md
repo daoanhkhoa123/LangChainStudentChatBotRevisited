@@ -128,7 +128,7 @@ Since i usually say "router nodes" so all router should be put in here also. The
 
 - Fixed type of input, output: takes the whole states and returns other nodes name (str)
 - Can be its own nodes (fully functional)
-- Do not necessary depend on functional calls (only if else or simple logic)
+- Do not necessary depend on functional calls (only if else or simple logic), *can call llms also*
 - Functionally operate on node level (from inputs of previous node, choose the next node)
 
 Example code:

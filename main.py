@@ -1,5 +1,6 @@
 from states import AppState
-from graphs.greeting_graph import add_greet, choose_upcomingevent, event_router, tell_upcomingevent_or_response
+from graphs.greeting_graph import add_greet, choose_upcomingevent, tell_upcomingevent_or_response
+from nodes.router import event_router
 
 from langgraph.graph import StateGraph, START, END
 
@@ -19,7 +20,7 @@ app = graph.compile()
 
 
 if __name__ == "__main__":
-    from tests.student_school_event_state_test import app_state
+    from tests.test_states_studentschoolappstate import app_state
 
     for event in app.stream(app_state):
         print(event)

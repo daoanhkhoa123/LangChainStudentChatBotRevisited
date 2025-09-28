@@ -10,7 +10,7 @@ def choose_upcomingevents_node(state:AppState) -> AppState:
     events =  choose_events(events, state.user_input)
     return {"cache": events}
 
-def ask_node(state:AppState):
+def user_input_node(state:AppState):
     user_input = input("Your prompt here:\n")
     return {"user_input": user_input}
 
