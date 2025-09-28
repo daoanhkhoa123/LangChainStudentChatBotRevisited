@@ -6,6 +6,7 @@ def greeting_node(state:AppState) -> AppState:
     return {"messages": [greet]}
 
 def choose_upcomingevents_node(state:AppState) -> AppState:
+    state.user_input = input("What event are you interested in?\n")
     events = state.schoolstate.upcoming_events
     events =  choose_events(events, state.user_input)
     return {"cache": events}

@@ -3,7 +3,7 @@ python: pep8
 
 Code and Folder structure:
 *Basically, i aim for modular coding experience where each components can be its own 
-states < fn_tools (partial) < nodes < graphs < main (or something else)
+states < fn_tools (partial) < nodes < graphs < main (or something else)*
 -----------------------------------------------
 
 These should be seperated in its own folder
@@ -76,6 +76,13 @@ app_state = AppState(
 )
 ```
 
+## States (AppState)
+Definition is in ```__init__.py``` under states module
+Include all classes warped in ```@include_in_appstate```, and some additional fields:
+- messages: the accumulated messages produced by the system. Defined as list.
+- user_input: the input from user, only keep the nearest one. Defined as str.
+- cache: whatever need to be persisted among the nodes, think of it as a junk box, can either be appended or replaced. Defined as list
+
 ## fn_tools
 
 This is the place where the logics of nodes lie. This is the bare level of functional.
@@ -143,7 +150,7 @@ def event_router(state:AppState) -> str:
         return "tell_event"
 ```
 
-## graphs
+## graphs (Obsolete, because we have a better way to do this)
 
 I am doing one big graph contain many smaller graphs, so, each functions defined in this should:
 - Take graph_builder StateGraph as input, and returns a tuple of starting node and end node 
